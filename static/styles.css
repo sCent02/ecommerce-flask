@@ -27,3 +27,11 @@ form {
     object-fit: cover;
     border-radius: 8px;
 }
+
+/* Ensure all product images are the same size */
+.card img {
+    width: 150px;  /* Set the width */
+    height: 150px; /* Set the height */
+    object-fit: cover; /* Crop images to fill the box */
+    border-radius: 8px; /* Optional: Rounded corners */
+}

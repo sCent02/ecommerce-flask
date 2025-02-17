@@ -93,3 +93,45 @@ def delete_product(product_id):
     db.session.delete(product)
     db.session.commit()
     return redirect(url_for("products.manage_products"))
+
+@products_bp.route("/manage_categories")
+def manage_categories():
+    categories = Category.query.all()
+    return render_template("manage_categories.html", categories=categories)
+
+@products_bp.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        name = request.form["name"]
+
+        if name.strip():
+            new_category = Category(name=name.strip())
+            db.session.add(new_category)
+            db.session.commit()
+        
+        return redirect(url_for("products.manage_categories"))
+
+    return render_template("add_category.html")
+
+@products_bp.route("/edit_category/<int:category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    category = Category.query.get_or_404(category_id)
+
+    if request.method == "POST":
+        category.name = request.form["name"].strip()
+        db.session.commit()
+        return redirect(url_for("products.manage_categories"))
+
+    return render_template("edit_category.html", category=category)
+
+@products_bp.route("/delete_category/<int:category_id>")
+def delete_category(category_id):
+    category = Category.query.get_or_404(category_id)
+
+    # Prevent deleting categories if products exist in them
+    if Product.query.filter_by(category_id=category.id).count() > 0:
+        return "Cannot delete category with products", 400
+
+    db.session.delete(category)
+    db.session.commit()
+    return redirect(url_for("products.manage_categories"))
