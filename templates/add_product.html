@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Add a New Product</h1>
+
+    <form action="{{ url_for('add_product') }}" method="POST" enctype="multipart/form-data">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Price:</label>
+        <input type="number" name="price" step="0.01" required>
+
+        <label>Category:</label>
+        <select name="category_id">
+            {% for cat in categories %}
+            <option value="{{ cat.id }}">{{ cat.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Image:</label>
+        <input type="file" name="image" accept="image/*" required>
+
+        <button type="submit">Add Product</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('manage_products') }}">Back to Manage Products</a>
+</body>
+</html>

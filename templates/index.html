@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flask E-Commerce</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <h1>Welcome to Flask E-Commerce</h1>
+    <a href="{{ url_for('products.manage_products') }}" class="btn">Manage Products</a>
+    
+    <br><br>
+    <a href="{{ url_for('products.get_products') }}">View Products</a>
+</body>
+</html>

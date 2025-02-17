@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Manage Products</h1>
+    <a href="{{ url_for('products.add_product') }}" class="btn">Add New Product</a>
+
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td><img src="{{ url_for('static', filename='uploads/' + product.image_url) }}" width="50"></td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category.name }}</td>
+            <td>${{ product.price }}</td>
+            <td>
+                <a href="{{ url_for('products.edit_product', product_id=product.id) }}">Edit</a> |
+                <a href="{{ url_for('products.delete_product', product_id=product.id) }}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{{ url_for('products.get_products') }}">Back to Products</a>
+</body>
+</html>
