@@ -1,6 +1,12 @@
 body {
+    /* Absolute path to your background image */
+    background: url("/static/uploads/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+
     font-family: Arial, sans-serif;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 form {
@@ -34,4 +40,76 @@ form {
     height: 150px; /* Set the height */
     object-fit: cover; /* Crop images to fill the box */
     border-radius: 8px; /* Optional: Rounded corners */
+}
+
+table {
+    margin: 20px auto; /* Centers the table */
+    border-collapse: collapse; /* Ensures borders don't double */
+    width: 80%; /* Adjusts the width */
+}
+
+th, td {
+    border: 1px solid black; /* Adds border to table */
+    padding: 10px; /* Adds spacing inside cells */
+    text-align: left; /* Aligns text inside cells */
+}
+
+th {
+    background-color: #f2f2f2; /* Light gray background for headers */
+}
+
+td img {
+    display: block;
+    margin: auto; /* Centers the images */
+}
+
+/* General button styling */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff; /* Blue button */
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.btn:hover {
+    background-color: #0056b3; /* Darker blue */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Centering the buttons */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Table action buttons */
+.table-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #28a745; /* Green for edit */
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.table-btn:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+.delete-btn {
+    background-color: #dc3545; /* Red for delete */
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
 }
