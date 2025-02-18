@@ -21,10 +21,10 @@
             <td><img src="{{ url_for('static', filename='uploads/' + product.image_url) }}" width="50"></td>
             <td>{{ product.name }}</td>
             <td>{{ product.category.name }}</td>
-            <td>${{ product.price }}</td>
+            <td>PHP {{ product.price }}</td>
             <td>
-                <a href="{{ url_for('products.edit_product', product_id=product.id) }}">Edit</a> |
-                <a href="{{ url_for('products.delete_product', product_id=product.id) }}" onclick="return confirm('Are you sure?')">Delete</a>
+                <a href="{{ url_for('products.edit_product', product_id=product.id) }}" class="table-btn">Edit</a> |
+                <a href="{{ url_for('products.delete_product', product_id=product.id) }}" class="table-btn delete-btn" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
         </tr>
         {% endfor %}
@@ -34,7 +34,7 @@
     <a href="{{ url_for('products.manage_categories') }}" class="btn">Manage Categories</a>
 
     <br>
-    <a href="{{ url_for('products.get_products') }}">Back to Products</a>
+    <a href="{{ url_for('products.get_products') }}" class="btn">Back to Products</a>
 
     <br>
     <a href="{{ url_for('home') }}" class="btn">Back to Home</a>
