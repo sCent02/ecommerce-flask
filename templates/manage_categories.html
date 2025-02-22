@@ -19,14 +19,14 @@
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
             <td>
-                <a href="{{ url_for('products.edit_category', category_id=category.id) }}">Edit</a> |
-                <a href="{{ url_for('products.delete_category', category_id=category.id) }}" onclick="return confirm('Are you sure?')">Delete</a>
+                <a href="{{ url_for('products.edit_category', category_id=category.id) }}" class="table-btn">Edit</a> |
+                <a href="{{ url_for('products.delete_category', category_id=category.id) }}" class="table-btn delete-btn" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
         </tr>
         {% endfor %}
     </table>
 
     <br>
-    <a href="{{ url_for('products.manage_products') }}">Back to Manage Products</a>
+    <a href="{{ url_for('products.add_product') }}" class="btn">Back to Add Product</a>
 </body>
 </html>

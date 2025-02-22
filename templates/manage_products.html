@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Back to Home - Upper Left -->
+    <a href="{{ url_for('home') }}" class="btn home-btn">
+        🏠 Home
+    </a>
     <title>Manage Products</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
@@ -30,13 +34,10 @@
         {% endfor %}
     </table>
 
-    <br>
-    <a href="{{ url_for('products.manage_categories') }}" class="btn">Manage Categories</a>
+    <!-- Back to Products - Lower Left -->
+    <a href="{{ url_for('products.get_products') }}" class="btn back-btn">
+        🛒 Back to Products
+    </a>
 
-    <br>
-    <a href="{{ url_for('products.get_products') }}" class="btn">Back to Products</a>
-
-    <br>
-    <a href="{{ url_for('home') }}" class="btn">Back to Home</a>
 </body>
 </html>
