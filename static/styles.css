@@ -46,12 +46,16 @@ table {
     margin: 20px auto; /* Centers the table */
     border-collapse: collapse; /* Ensures borders don't double */
     width: 80%; /* Adjusts the width */
+    background-color: white; /* Change table background */
+    color: black; /* Change text color */
 }
 
 th, td {
     border: 1px solid black; /* Adds border to table */
     padding: 10px; /* Adds spacing inside cells */
     text-align: left; /* Aligns text inside cells */
+    background-color: #f0f5f8; /* Header background (blue) */
+    color: black; /* Header text color */
 }
 
 th {
@@ -112,4 +116,36 @@ td img {
 
 .delete-btn:hover {
     background-color: #c82333;
+}
+
+/* Position "Back to Home" in the upper left */
+.home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Center "Manage Categories" button */
+.center-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Position "Back to Products" in the lower left */
+.back-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
 }
